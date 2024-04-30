@@ -1,1 +1,1 @@
-chrome.action.onClicked.addListener(() => { chrome.action.openPopup(); });
+chrome.action.onClicked.addListener(() => { chrome.action.openPopup() })

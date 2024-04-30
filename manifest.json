@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "todo: ",
+  "name": "my-chrome-ext",
   "version": "1.0",
-  "description": "todo: ",
+  "description": "my chrome extension",
   "permissions": [ "scripting", "activeTab" ],
   "action": { "default_popup": "popup.html" },
   "background": { "service_worker": "background.js" }
