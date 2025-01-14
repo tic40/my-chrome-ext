@@ -1,10 +1,10 @@
 const PARAMS_LOGIN_LIBRARY1 = {
-  id: '',
-  password: ''
+  id: '***',
+  password: '***'
 }
 const PARAMS_LOGIN_LIBRARY2 = {
-  id: '',
-  password: ''
+  id: '***',
+  password: '***'
 }
 const PARAMS_FILL_ITS_FACILITY_FORM = {
   apply_sign_no: 0, // 保険証記号
@@ -36,9 +36,9 @@ function loginLibrary(tab, params) {
     target: { tabId: tab.id },
     args: [params],
     function: (params) => {
-      const elmId = document.querySelector('#LoginCheck > div.col-xs-6 > div > div.panel-body > div:nth-child(3) > input')
-      const elmPassword = document.querySelector('#LoginCheck > div.col-xs-6 > div > div.panel-body > div:nth-child(5) > input')
-      const elmSubmit = document.querySelector('#LoginCheck > div.col-xs-6 > div > div.panel-body > div:nth-child(7) > input')
+      const elmId = document.querySelector('#LoginCheck > div > div.col-xs-8.col-12.col-lg-8 > div > div.panel-body > div:nth-child(3) > input')
+      const elmPassword = document.querySelector('#LoginCheck > div > div.col-xs-8.col-12.col-lg-8 > div > div.panel-body > div:nth-child(5) > input')
+      const elmSubmit = document.querySelector('#LoginCheck > div > div.col-xs-8.col-12.col-lg-8 > div > div.panel-body > div:nth-child(7) > input')
       elmId.value = params.id
       elmPassword.value = params.password
       elmSubmit.click()
