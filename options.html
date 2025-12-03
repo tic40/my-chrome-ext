@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設定 - my-chrome-ext</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <h1>設定</h1>
+
+  <section class="card">
+    <h2>図書館ログイン1</h2>
+    <div class="form-group">
+      <label for="library1-id">ID</label>
+      <input type="text" id="library1-id" placeholder="ID">
+    </div>
+    <div class="form-group">
+      <label for="library1-password">パスワード</label>
+      <input type="password" id="library1-password" placeholder="パスワード">
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>図書館ログイン2</h2>
+    <div class="form-group">
+      <label for="library2-id">ID</label>
+      <input type="text" id="library2-id" placeholder="ID">
+    </div>
+    <div class="form-group">
+      <label for="library2-password">パスワード</label>
+      <input type="password" id="library2-password" placeholder="パスワード">
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>ITS施設フォーム設定</h2>
+    <div class="form-group">
+      <label for="its-bookmarklet">ブックマークレットからインポート</label>
+      <textarea id="its-bookmarklet" rows="3" placeholder="javascript:(function()..."></textarea>
+      <button id="import-bookmarklet" class="btn-secondary" style="margin-top: 8px;">インポート</button>
+    </div>
+    <hr style="margin: 15px 0;">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="its-sign-no">保険証記号</label>
+        <input type="text" id="its-sign-no" placeholder="保険証記号">
+      </div>
+      <div class="form-group">
+        <label for="its-insured-no">保険番号</label>
+        <input type="text" id="its-insured-no" placeholder="保険番号">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="its-office-name">事業所名</label>
+      <input type="text" id="its-office-name" placeholder="事業所名">
+    </div>
+    <div class="form-group">
+      <label for="its-kana-name">申し込み者名（カナ）</label>
+      <input type="text" id="its-kana-name" placeholder="カナ">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="its-year">生年</label>
+        <input type="number" id="its-year" placeholder="1990">
+      </div>
+      <div class="form-group">
+        <label for="its-month">月</label>
+        <input type="number" id="its-month" min="1" max="12" placeholder="1">
+      </div>
+      <div class="form-group">
+        <label for="its-day">日</label>
+        <input type="number" id="its-day" min="1" max="31" placeholder="1">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="its-gender">性別</label>
+        <select id="its-gender">
+          <option value="man">男性</option>
+          <option value="woman">女性</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="its-relationship">続柄</label>
+        <select id="its-relationship">
+          <option value="myself">本人</option>
+          <option value="family">家族</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="its-phone">電話番号</label>
+      <input type="tel" id="its-phone" placeholder="00000000000">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="its-postal">郵便番号</label>
+        <input type="text" id="its-postal" placeholder="0000000">
+      </div>
+      <div class="form-group">
+        <label for="its-state">都道府県</label>
+        <select id="its-state">
+          <option value="1">北海道</option>
+          <option value="2">青森県</option>
+          <option value="3">岩手県</option>
+          <option value="4">宮城県</option>
+          <option value="5">秋田県</option>
+          <option value="6">山形県</option>
+          <option value="7">福島県</option>
+          <option value="8">茨城県</option>
+          <option value="9">栃木県</option>
+          <option value="10">群馬県</option>
+          <option value="11">埼玉県</option>
+          <option value="12">千葉県</option>
+          <option value="13" selected>東京都</option>
+          <option value="14">神奈川県</option>
+          <option value="15">新潟県</option>
+          <option value="16">富山県</option>
+          <option value="17">石川県</option>
+          <option value="18">福井県</option>
+          <option value="19">山梨県</option>
+          <option value="20">長野県</option>
+          <option value="21">岐阜県</option>
+          <option value="22">静岡県</option>
+          <option value="23">愛知県</option>
+          <option value="24">三重県</option>
+          <option value="25">滋賀県</option>
+          <option value="26">京都府</option>
+          <option value="27">大阪府</option>
+          <option value="28">兵庫県</option>
+          <option value="29">奈良県</option>
+          <option value="30">和歌山県</option>
+          <option value="31">鳥取県</option>
+          <option value="32">島根県</option>
+          <option value="33">岡山県</option>
+          <option value="34">広島県</option>
+          <option value="35">山口県</option>
+          <option value="36">徳島県</option>
+          <option value="37">香川県</option>
+          <option value="38">愛媛県</option>
+          <option value="39">高知県</option>
+          <option value="40">福岡県</option>
+          <option value="41">佐賀県</option>
+          <option value="42">長崎県</option>
+          <option value="43">熊本県</option>
+          <option value="44">大分県</option>
+          <option value="45">宮崎県</option>
+          <option value="46">鹿児島県</option>
+          <option value="47">沖縄県</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="its-address">住所</label>
+      <input type="text" id="its-address" placeholder="住所">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="its-persons">宿泊人数</label>
+        <input type="number" id="its-persons" min="1" placeholder="2">
+      </div>
+      <div class="form-group">
+        <label for="its-rooms">部屋数</label>
+        <input type="number" id="its-rooms" min="1" placeholder="1">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="its-room-type">部屋タイプ</label>
+      <input type="text" id="its-room-type" placeholder="部屋タイプ">
+    </div>
+  </section>
+
+  <div class="actions">
+    <button id="save" class="btn-primary">保存</button>
+    <span id="status"></span>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

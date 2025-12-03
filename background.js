@@ -1,1 +1,2 @@
-chrome.action.onClicked.addListener(() => { chrome.action.openPopup() })
+// Service Worker
+// openOptionsPage のために必要
