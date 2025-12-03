@@ -80,34 +80,6 @@ function restoreOptions() {
   });
 }
 
-// ブックマークレットからパラメータを抽出
-function parseBookmarklet(bookmarklet) {
-  try {
-    // URLデコード
-    const decoded = decodeURIComponent(bookmarklet);
-
-    // params={...} の部分を抽出
-    const paramsMatch = decoded.match(/params\s*=\s*(\{[\s\S]*?\})\s*[,;]/);
-    if (!paramsMatch) {
-      throw new Error('paramsが見つかりません');
-    }
-
-    // Unicodeエスケープをデコード
-    let paramsStr = paramsMatch[1];
-    paramsStr = paramsStr.replace(/\\u([0-9a-fA-F]{4})/g, (_, code) =>
-      String.fromCharCode(parseInt(code, 16))
-    );
-
-    // JSON形式に変換（キーをダブルクォートで囲む）
-    paramsStr = paramsStr.replace(/([{,]\s*)(\w+)\s*:/g, '$1"$2":');
-
-    return JSON.parse(paramsStr);
-  } catch (e) {
-    console.error('Parse error:', e);
-    return null;
-  }
-}
-
 // パラメータをフォームに反映
 function applyParamsToForm(params) {
   if (params.apply_sign_no !== undefined) {
@@ -160,26 +132,5 @@ function applyParamsToForm(params) {
   }
 }
 
-// ブックマークレットインポート
-function importBookmarklet() {
-  const textarea = document.getElementById('its-bookmarklet');
-  const bookmarklet = textarea.value.trim();
-
-  if (!bookmarklet) {
-    alert('ブックマークレットを入力してください');
-    return;
-  }
-
-  const params = parseBookmarklet(bookmarklet);
-  if (params) {
-    applyParamsToForm(params);
-    textarea.value = '';
-    alert('インポートしました。「保存」ボタンで保存してください。');
-  } else {
-    alert('ブックマークレットの解析に失敗しました');
-  }
-}
-
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);
-document.getElementById('import-bookmarklet').addEventListener('click', importBookmarklet);
