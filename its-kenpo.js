@@ -38,7 +38,7 @@
       navigateTab('next');
     } else if (e.key === 'k') {
       navigateTab('prev');
-    } else if (e.key === 'ArrowRight') {
+    } else if (e.key == 's' || e.key === 'ArrowRight') {
       const buttons = document.querySelectorAll('#nextMonth');
       for (const btn of buttons) {
         if (btn.offsetParent !== null) {
@@ -46,7 +46,7 @@
           break;
         }
       }
-    } else if (e.key === 'ArrowLeft') {
+    } else if (e.key == 'a' || e.key === 'ArrowLeft') {
       const buttons = document.querySelectorAll('#prevMonth');
       for (const btn of buttons) {
         if (btn.offsetParent !== null) {
