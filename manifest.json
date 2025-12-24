@@ -24,6 +24,10 @@
     {
       "matches": ["https://atcoder.jp/*"],
       "js": ["atcoder.js"]
+    },
+    {
+      "matches": ["https://as.its-kenpo.or.jp/*"],
+      "js": ["its-kenpo.js"]
     }
   ]
 }
