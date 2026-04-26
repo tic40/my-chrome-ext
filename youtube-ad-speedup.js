@@ -35,13 +35,14 @@
   }
 
   function onAdStart(video) {
-    if (isAdActive) return;
-    isAdActive = true;
-    originalRate = video.playbackRate;
-    originalMuted = video.muted;
+    if (!isAdActive) {
+      originalRate = video.playbackRate;
+      originalMuted = video.muted;
+      isAdActive = true;
+      console.info('[my-chrome-ext] Ad detected: speed x' + AD_PLAYBACK_RATE + ', muted');
+    }
     video.playbackRate = AD_PLAYBACK_RATE;
     video.muted = true;
-    console.info('[my-chrome-ext] Ad detected: speed x' + AD_PLAYBACK_RATE + ', muted');
   }
 
   function onAdEnd(video) {
@@ -82,7 +83,10 @@
     });
 
     setInterval(() => {
-      if (isAdActive) tryClickSkip();
+      if (isAdActive) {
+        checkAndHandle();
+        tryClickSkip();
+      }
     }, 500);
 
     checkAndHandle();
