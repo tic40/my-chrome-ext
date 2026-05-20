@@ -29,10 +29,10 @@
       "matches": ["https://as.its-kenpo.or.jp/*"],
       "js": ["its-kenpo.js"]
     },
-    // {
-    //   "matches": ["https://www.youtube.com/*"],
-    //   "js": ["youtube-ad-speedup.js"],
-    //   "run_at": "document_idle"
-    // }
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["youtube-ad-speedup.js"],
+      "run_at": "document_idle"
+    }
   ]
 }

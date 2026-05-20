@@ -93,9 +93,19 @@
     console.info('[my-chrome-ext] YouTube ad speedup active');
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', observePlayer);
-  } else {
-    observePlayer();
+  function start() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', observePlayer);
+    } else {
+      observePlayer();
+    }
   }
+
+  chrome.storage.local.get('youtubeAdSpeedupEnabled', (result) => {
+    if (result.youtubeAdSpeedupEnabled === false) {
+      console.info('[my-chrome-ext] YouTube ad speedup disabled');
+      return;
+    }
+    start();
+  });
 })();

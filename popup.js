@@ -253,6 +253,15 @@ document.addEventListener('DOMContentLoaded', function () {
     await loginLibrary(tab, 'library2');
   });
 
+  // YouTube広告早送り ON/OFF
+  const youtubeAdSpeedupToggle = document.getElementById('youtubeAdSpeedupEnabled');
+  chrome.storage.local.get('youtubeAdSpeedupEnabled', (result) => {
+    youtubeAdSpeedupToggle.checked = result.youtubeAdSpeedupEnabled !== false;
+  });
+  youtubeAdSpeedupToggle.addEventListener('change', function () {
+    chrome.storage.local.set({ youtubeAdSpeedupEnabled: this.checked });
+  });
+
   // 設定ページを開く
   document.getElementById('openSettings').addEventListener('click', function () {
     chrome.runtime.openOptionsPage();
