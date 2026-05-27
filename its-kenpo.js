@@ -1,6 +1,45 @@
 (function () {
   'use strict';
 
+  const HIDDEN_FACILITIES = [
+    'ホテルハーヴェスト斑尾',
+    'ブルーベリーヒル勝浦',
+    'ホテルハーヴェスト　スキージャム勝山',
+    'ホテル琵琶レイクオーツカ',
+    'ホテル日航プリンセス京都',
+    'ホテルハーヴェスト南紀田辺',
+    'ホテルハーヴェスト浜名湖',
+    'ホテルハーヴェスト有馬六彩',
+    'ゆふいん山水館',
+    'ホテルオークラ東京ベイ',
+    'NASPAニューオータニ',
+    'NAGU 勝浦',
+    '定山渓 ゆらく草庵',
+    '和倉温泉 あえの風',
+  ];
+
+  function normalize(text) {
+    return text.replace(/[\s　]+/g, '');
+  }
+
+  function hideFacilities() {
+    if (!location.pathname.startsWith('/apply/empty_calendar')) return;
+
+    const normalizedTargets = HIDDEN_FACILITIES.map(normalize);
+    const items = document.querySelectorAll('li');
+    items.forEach((li) => {
+      const text = normalize(li.textContent || '');
+      if (normalizedTargets.some((t) => text.includes(t))) {
+        li.remove();
+      }
+    });
+  }
+
+  hideFacilities();
+
+  const observer = new MutationObserver(() => hideFacilities());
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+
   function navigateTab(direction) {
     const tabs = document.querySelectorAll('#top_tabs li');
     if (tabs.length === 0) return;
